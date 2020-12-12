@@ -34,7 +34,7 @@ class _ContactsPageState extends State<ContactsPage> {
                   builder: (context, snapshot){
                     if(snapshot.hasError) print('error');
                     var data = snapshot.data;
-                    return ContactsList(data);
+                    return snapshot.hasData ? ContactsList(data) : new Center(child: Text('You have no contacts'),);
                   },
                 ),
               ],

@@ -26,6 +26,21 @@ class HorizontalButtonBar extends StatelessWidget {
             },
             child: Icon(Icons.search),
           ),
+          FloatingActionButton(
+            heroTag: 'add category button',
+            onPressed: () {
+              Navigator.of(context).pushReplacementNamed('/addCategoryPage');
+            },
+            child: Icon(Icons.playlist_add_rounded),
+          ),
+          FloatingActionButton(
+            heroTag: 'search contact by category',
+            onPressed: () {
+              Navigator.of(context).pushReplacementNamed('/searchContactsByCategory');
+            },
+            child: Icon(Icons.list),
+          ),
+
         ],
       ),
     );

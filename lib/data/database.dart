@@ -9,7 +9,7 @@ class DatabaseRepository {
   static final DatabaseRepository instance =
       DatabaseRepository.privateConstructor();
 
-  final _databaseName = 'database';
+  final _databaseName = 'database3';
   final _databaseVersion = 1;
 
   static Database _database;
@@ -35,6 +35,16 @@ class DatabaseRepository {
             contactId INTEGER PRIMARY KEY AUTOINCREMENT,
             contactName STRING NOT NULL,
             contactSurname STRING NOT NULL,
+            FK_contact_category INT NOT NULL,
+            FOREIGN KEY (FK_contact_category) REFERENCES category (categoryId) 
+            
+          )
+          ''');
+
+    await db.execute('''
+          CREATE TABLE category (
+            categoryId INTEGER PRIMARY KEY AUTOINCREMENT,
+            categoryName STRING NOT NULL
           )
           ''');
   }
